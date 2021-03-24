@@ -1,0 +1,50 @@
+render(){
+    return (
+      
+
+      this.state.allClasses.length===0?(
+        <View>
+        <SafeAreaProvider>
+        <ScrollView>
+        <View  style={styles.container}>
+          <View style={{flex:0.9}}>
+        <MyHeader title={"Scheduled Classes"}/>
+        <Text style={styles.text}>List of All Scheduled Classes</Text>
+        </View>
+        </View>
+      </ScrollView>
+      </SafeAreaProvider>
+      ):(
+        <SafeAreaProvider>
+        <ScrollView>
+        <View  style={styles.container}>
+          <View style={{flex:0.9}}>
+        <MyHeader title={"Scheduled Classes"}/>
+        <FlatList
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderItem}
+        data={this.state.allClasses}
+        />
+        </View>
+        </View>
+        </ScrollView>
+        </SafeAreaProvider>
+      )
+        <View style={{flex:0.1}}>
+        <TouchableOpacity 
+        style={styles.button}
+        onPress={()=>{this.props.navigation.navigate('AddClass')}}
+        >
+        <Text style={styles.buttonText}>+</Text>
+        </TouchableOpacity>
+      
+        </View>
+  
+        </View>
+       
+
+      
+    )
+  
+  
+}
